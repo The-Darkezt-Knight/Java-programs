@@ -8,6 +8,7 @@ public class Item {
     public Item(String name, String type, int quantity)
     {
         this.name = name;
+        this.type = type;
         this.quantity = quantity;
     }
 
