@@ -1,6 +1,7 @@
 package Inventory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Inventory{
     
@@ -28,29 +29,39 @@ public class Inventory{
 
     public void display_items()
     {
-        for(int i = 0; i < items.size(); i++)
+        ArrayList<Item> sortedItems = new ArrayList<>(items);
+        Collections.sort(sortedItems);
+
+        for (int i = 0; i < sortedItems.size(); i++)
+        {
+            System.out.println(sortedItems.get(i));
+
+            if (i + 1 != sortedItems.size())
             {
-                System.out.println(items.get(i));
+                String currentClass = sortedItems.get(i).getClass().getSimpleName();
+                String nextClass = sortedItems.get(i + 1).getClass().getSimpleName();
 
-                if(i+1 != items.size())
-                    {
-                        String instance = items.get(i).getClass().getSimpleName();
-
-                        if(!instance.toString().equalsIgnoreCase(items.get(i+1).getClass().getSimpleName().toString()))
-                        {
-                            System.out.println("*------------------------------------*");
-                        }
-                    }
+                if (!currentClass.equalsIgnoreCase(nextClass))
+                {
+                    System.out.println("*------------------------------------*");
+                }
             }
+        }
     }
 
     public void display_items(String instance)
     {
-            for (Item item : items) {
-                if(item.getClass().getSimpleName().toString().equalsIgnoreCase(instance)){
-                    System.out.println(item);
-                }
+        ArrayList<Item> sortedItems = new ArrayList<>(items);
+        Collections.sort(sortedItems);
+
+        for (Item item : sortedItems)
+        {
+            if (item.getClass().getSimpleName().equalsIgnoreCase(instance))
+            {
+                System.out.println(item);
             }
+        }
     }
+
 
 }

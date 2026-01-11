@@ -1,6 +1,6 @@
 package Inventory;
 
-public class Item {
+public class Item implements Comparable<Item> {
     private String name;
     private String type;
     private int quantity;
@@ -43,8 +43,37 @@ public class Item {
     }
 
     @Override
+    public int compareTo(Item other)
+    {
+       if(other == null)
+        {
+            return -1;
+        }
+
+        String thisClass = this.getClass().getSimpleName();
+        String otherClass = other.getClass().getSimpleName();
+        int byClass = String.CASE_INSENSITIVE_ORDER.compare(thisClass, otherClass);
+        if(byClass != 0)
+            {
+                return byClass;
+            }
+
+        int byName = String.CASE_INSENSITIVE_ORDER.compare(this.name, other.name);
+        if (byName != 0) {
+            return byName;
+        }
+
+        int byType = String.CASE_INSENSITIVE_ORDER.compare(this.type, other.type);
+        if (byType != 0) {
+            return byType;
+        }
+
+        return Integer.compare(this.quantity, other.quantity);
+    }
+
+    @Override
     public String toString()
     {
-        return "Name: " + name + ", Type: " + type + "Quantity: " + quantity;
+        return "Name: " + name + ", Type: " + type + ", Quantity: " + quantity;
     }
 }
