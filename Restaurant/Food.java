@@ -1,4 +1,4 @@
-package IDExample;
+package Restaurant;
 
 public class Food {
     private String food_name;

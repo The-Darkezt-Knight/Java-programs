@@ -1,3 +1,4 @@
+package Leetcode;
 public class Shortest_Word_Finder {
     public static int findShort(String s) {
     String[] words = s.split(" ");

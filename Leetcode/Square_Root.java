@@ -1,3 +1,4 @@
+package Leetcode;
 class Square_Root
 {
     int mySqrt(int x) {

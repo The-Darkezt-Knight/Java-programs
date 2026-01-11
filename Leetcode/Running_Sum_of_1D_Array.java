@@ -1,3 +1,4 @@
+package Leetcode;
 import java.util.Arrays;
 
 public class Running_Sum_of_1D_Array {

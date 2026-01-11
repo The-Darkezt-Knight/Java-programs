@@ -1,3 +1,4 @@
+package Leetcode;
 public class Length_Of_Last_Word {
     public static int lengthOfLastWord(String s) {
         String[] strings = s.trim().split(" ");

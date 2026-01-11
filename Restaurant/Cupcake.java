@@ -1,4 +1,4 @@
-package IDExample;
+package Restaurant;
 
 public class Cupcake extends Food {
     

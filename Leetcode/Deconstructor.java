@@ -1,3 +1,4 @@
+package Leetcode;
 public class Deconstructor {
     public static String expandedForm(int num) {
         String digits = String.valueOf(num);

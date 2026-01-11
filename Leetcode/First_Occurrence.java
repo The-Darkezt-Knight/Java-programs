@@ -1,3 +1,4 @@
+package Leetcode;
 class First_Occurence
 {
     public int strStr(String haystack, String needle) {
