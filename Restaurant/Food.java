@@ -1,6 +1,6 @@
 package Restaurant;
 
-public class Food {
+class Food {
     private String food_name;
     private String type;
     private int price;
