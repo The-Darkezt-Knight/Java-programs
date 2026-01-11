@@ -40,4 +40,10 @@ public class Item {
     {
         return quantity;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Name: " + name + ", Type: " + type + "Quantity: " + quantity;
+    }
 }

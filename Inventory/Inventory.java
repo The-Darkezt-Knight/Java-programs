@@ -19,7 +19,17 @@ public class Inventory{
     public void display_items()
     {
         for (Item item : items) {
-            System.out.println("Name: " + item.get_name() + " Quantity: " + item.get_quantity());
+            System.out.println(item);
+        }
+    }
+
+    public void display_items(String instance)
+    {
+        for (Item item : items) {
+            if(item.getClass().toString().equalsIgnoreCase(instance))
+                {
+                    System.out.println(item);
+                }
         }
     }
 

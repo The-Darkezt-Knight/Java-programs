@@ -19,4 +19,10 @@ public class Weapon extends Item{
     {
         return damage;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Name: " + get_name() + ", Type: " + get_type() + ", Quantity: " + get_quantity() + ", Damage: " + get_damage();
+    }
 }
