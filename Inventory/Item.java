@@ -45,31 +45,37 @@ public class Item implements Comparable<Item> {
     @Override
     public int compareTo(Item other)
     {
-       if(other == null)
-        {
-            return -1;
-        }
-
-        String thisClass = this.getClass().getSimpleName();
-        String otherClass = other.getClass().getSimpleName();
-        int byClass = String.CASE_INSENSITIVE_ORDER.compare(thisClass, otherClass);
-        if(byClass != 0)
+        if(other == null)
             {
-                return byClass;
+                return -1;
             }
 
-        int byName = String.CASE_INSENSITIVE_ORDER.compare(this.name, other.name);
-        if (byName != 0) {
-            return byName;
-        }
+        String this_class = this.getClass().getSimpleName();
+        String other_class = this.getClass().getSimpleName();
 
-        int byType = String.CASE_INSENSITIVE_ORDER.compare(this.type, other.type);
-        if (byType != 0) {
-            return byType;
-        }
+        int by_class = String.CASE_INSENSITIVE_ORDER.compare(this_class, other_class);
+        if(by_class != 0)
+            {
+                return by_class;
+            }
+
+        int by_name = String.CASE_INSENSITIVE_ORDER.compare(this_class, other_class);
+        if(by_name != 0)
+            {
+                return by_name;
+            }
+
+        int by_type = String.CASE_INSENSITIVE_ORDER.compare(this_class, other_class);
+        if(by_type != 0)
+            {
+                return by_type;
+            }
 
         return Integer.compare(this.quantity, other.quantity);
     }
+
+    
+
 
     @Override
     public String toString()

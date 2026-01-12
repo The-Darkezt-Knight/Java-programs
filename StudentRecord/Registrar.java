@@ -1,41 +1,41 @@
 package StudentRecord;
 
-public class Registrar extends School implements Includes{
+import java.util.ArrayList;
 
-    public Registrar(String first_name, String last_name, int age)
+public class Registrar extends Employee{
+    
+    ArrayList<Person> school_db;
+
+    public Registrar(String first_name, String last_name, int age, int height, int weight, String position)
     {
-        super(first_name, last_name, age);
+        super(first_name, last_name, age, height, weight, position);
+        school_db = new ArrayList<>();
     }
 
-    public void separator()
+    public void register(Student student)
     {
-        System.out.println("========================================");
+        school_db.add(student);
     }
 
-    public void enroll_student(Student student)
+    public void register(Employee employee)
     {
-        get_student_record().add(student);
-        System.out.println(String.format("""
-                Successfully added %s to the database
-                """. formatted(student.get_first_name())));
+        school_db.add(employee);
+    }
+    
+    public void remove(Student student)
+    {
+        school_db.remove(student);
     }
 
-    public void remove_student(Student student)
+    public void remove(Employee employee)
     {
-        get_student_record().remove(student);
+        school_db.remove(employee);
     }
 
-    public void log_students()
+    public void set_position(Employee employee, String position)
     {
-        for (Student student : get_student_record()) {
-            System.out.println(String.format("""
-                First name:    %s
-                Last name:     %s
-                Age:           %d
-                Year level:    %d
-                Section:       %s
-                """.formatted(student.get_first_name(), student.get_last_name(), student.get_age(), student.get_year_level(), student.get_section())));
-                separator();
-        }
+        employee.set_position(position);
     }
+
+
 }
