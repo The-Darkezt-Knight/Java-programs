@@ -1,6 +1,6 @@
 package StudentRecord;
 
-public class Person {
+public class Person implements Comparable<Person>{
     private String first_name;
     private String last_name;
     private int age;
@@ -64,6 +64,35 @@ public class Person {
     public int get_weight()
     {
         return weight;
+    }
+
+    public int compareTo(Person other)
+    {
+        if(other == null) return -1;
+
+        String this_first_name = this.first_name;
+        String other_first_name = other.first_name;
+        int by_first_name = String.CASE_INSENSITIVE_ORDER.compare(this_first_name, other_first_name);
+        if(by_first_name != 0) return by_first_name;
+
+        String this_last_name = this.last_name;
+        String other_last_name = other.last_name;
+        int by_last_name = String.CASE_INSENSITIVE_ORDER.compare(this_last_name, other_last_name);
+        if(by_last_name != 0) return by_last_name;
+
+        int by_age = Integer.compare(this.age, other.age);
+        if(by_age != 0) return by_age;
+
+        int by_height = Integer.compare(this.height, other.height);
+        if(by_height != 0) return by_height;
+
+        return Integer.compare(this.weight, other.weight);
+    }
+
+    @Override
+    public String toString()
+    {
+        return first_name + " " + last_name + "(" + getClass().getSimpleName() + ")";
     }
 }
 
