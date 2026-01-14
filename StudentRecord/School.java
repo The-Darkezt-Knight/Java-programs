@@ -2,28 +2,35 @@ package StudentRecord;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 public class School {
-    private ArrayList<Person> school_db;
-    private static School school_obj;
+    private final ArrayList<Person> school_db;
+    private static final School school_obj = new School();
 
     private School()
     {
         school_db = new ArrayList<>();
     }
 
-    public ArrayList<Person> get_school_db()
+    public List<Person> get_school_db()
     {
-        return school_db;
+        return Collections.unmodifiableList(school_db);
+    }
+
+    public void add_person(Person person)
+    {
+        school_db.add(Objects.requireNonNull(person));
+    }
+
+    public void remove_person(Person person)
+    {
+        school_db.remove(person);
     }
 
     public static School get_school_object()
     {
-        if(school_obj == null)
-            {
-                school_obj = new School();
-            }
-
         return school_obj;
     }
 

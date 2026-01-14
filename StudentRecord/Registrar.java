@@ -17,7 +17,7 @@ public class Registrar extends Employee{
 
     public void register(Student student)
     {
-        access_database().get_school_db().add(student);
+        access_database().add_person(student);
         System.out.println(String.format("""
                 Successfully added %s
                 """. formatted(student)));
@@ -25,17 +25,17 @@ public class Registrar extends Employee{
 
     public void register(Employee employee)
     {
-        access_database().get_school_db().add(employee);
+        access_database().add_person(employee);
     }
     
     public void remove(Student student)
     {
-        access_database().get_school_db().remove(student);
+        access_database().remove_person(student);
     }
 
     public void remove(Employee employee)
     {
-        access_database().get_school_db().remove(employee);
+        access_database().remove_person(employee);
     }
 
     public void set_position(Employee employee, String position)
