@@ -5,8 +5,9 @@ import java.util.Collections;
 
 public class School {
     private ArrayList<Person> school_db;
+    private static School school_obj;
 
-    public School()
+    private School()
     {
         school_db = new ArrayList<>();
     }
@@ -14,6 +15,16 @@ public class School {
     public ArrayList<Person> get_school_db()
     {
         return school_db;
+    }
+
+    public static School get_school_object()
+    {
+        if(school_obj == null)
+            {
+                school_obj = new School();
+            }
+
+        return school_obj;
     }
 
     public void get_list()
@@ -33,7 +44,7 @@ public class School {
             {
                 System.out.println(list.get(i));
 
-                if(i+1 != list.size()-1)
+                if(i+1 != list.size())
                 if(!list.get(i).getClass().getSimpleName().equalsIgnoreCase(list.get(i+1).getClass().getSimpleName()))
                     {
                         System.out.println("_==========================_");

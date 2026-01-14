@@ -23,7 +23,7 @@ public class Person implements Comparable<Person>{
 
     public void set_last_name(String last_name)
     {
-        this.first_name = last_name;
+        this.last_name = last_name;
     }
 
     public void set_age(int age)
@@ -66,9 +66,15 @@ public class Person implements Comparable<Person>{
         return weight;
     }
 
+    @Override
     public int compareTo(Person other)
     {
         if(other == null) return -1;
+
+        String this_class = this.getClass().getSimpleName();
+        String other_class = other.getClass().getSimpleName();
+        int by_class = String.CASE_INSENSITIVE_ORDER.compare(this_class, other_class);
+        if(by_class != 0) return by_class;
 
         String this_first_name = this.first_name;
         String other_first_name = other.first_name;

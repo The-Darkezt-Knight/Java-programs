@@ -19,4 +19,10 @@ public class Employee extends Person{
     {
         this.position = position;
     }
+
+    @Override
+    public String toString()
+    {
+        return get_first_name() + " " + get_last_name() + "(" + getClass().getSimpleName() + ")";
+    }
 }

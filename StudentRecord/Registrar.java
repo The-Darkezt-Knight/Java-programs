@@ -12,7 +12,7 @@ public class Registrar extends Employee{
 
     public School access_database()
     {
-        return new School();
+        return School.get_school_object();
     }
 
     public void register(Student student)

@@ -7,5 +7,11 @@ public class Student extends Person{
     {
         super(first_name, last_name, age, height, weight);
     }
+
+    @Override
+    public String toString()
+    {
+        return get_first_name() + " " + get_last_name() + "(" + getClass().getSimpleName() + ")";
+    }
     
 }
